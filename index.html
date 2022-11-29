@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailored Travel Maps</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+     integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+     crossorigin=""/>
+     <script src ="index.js" defer></script>
+     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+     integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+     crossorigin=""></script>
+     <style>#map {height:600px}</style>
+</head>
+<body>
+    <h3>Where are you going?</h3>
+    <select name = 'dropdown' id = 'places'>
+        <option value = 'coffee'>Cafes</option>
+        <option value = 'restaurant'>Restaurants</option>
+        <option value = 'hotel'>Hotels</option>
+        <option value = 'market'>Markets</option>
+    </select>
+    <div id="map"></div>
+</body>
+</html>
