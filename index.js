@@ -20,23 +20,45 @@ APIs required in order of appearance?:
     
     ... and passing the coordinates into center property of L.map*/
 
-//Pulling in user's location
-async function getCoordinates(){
+
+
+async function loadMap(){
+    //find user's location...
     position = await new Promise((resolve, reject) => {
         navigator.geolocation.getCurrentPosition(resolve, reject)
-    })
+    });
+    
+    var latLong = {
+        lat: position.coords.latitude,
+        long: position.coords.longitude
+    };
 
-    return [position.coords.latitude, position.coords.longitude]
-}
-function loadMap(){
+    //create map layer
     var userMap = L.map('map', {
-        center: [48.868672,2.342130],
-        zoom: 12,
-    })
+        center: [latLong.lat, latLong.long],
+        zoom: 100,
+    });
+
+    //create tile layer
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: '19',
+    maxZoom: 15,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(userMap);
+
+    
+    //to create a circle around where they are
+    L.circle([latLong.lat, latLong.long],{
+        fillColor: '#0000FF',
+        fillOpacity: 0.25,
+        radius: 100
+    }).addTo(userMap);
+    L.circle([latLong.lat, latLong.long],{
+        fillColor: '#0000FF',
+        fillOpacity: 0.5,
+        radius: 25
+    }).addTo(userMap);
+
+    
 }
 
 loadMap();
