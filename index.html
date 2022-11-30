@@ -12,15 +12,15 @@
 </head>
 <body>
     <h3>Where are you going?</h3>
-    <form>
-        <select name = 'businesses'>
-            <option value = 'coffee'>Cafes</option>
-            <option value = 'restaurant'>Restaurants</option>
-            <option value = 'hotel'>Hotels</option>
-            <option value = 'market'>Markets</option>
-        </select>
-        <button id="submit">Submit</button>
-    </form>
+    
+    <select id = 'select'>
+        <option value = ''>--Choose an option--</option>
+        <option value = 'coffee'>Cafes</option>
+        <option value = 'restaurant'>Restaurants</option>
+        <option value = 'hotel'>Hotels</option>
+        <option value = 'market'>Markets</option>
+    </select>
+        
     <div id="map"></div>
     <script src ="index.js" defer></script>
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
