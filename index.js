@@ -19,3 +19,26 @@ APIs required in order of appearance?:
     }) 
     
     ... and passing the coordinates into center property of L.map*/
+
+//Pulling in user's location
+async function getCoordinates(){
+    position = await new Promise((resolve, reject) => {
+        navigator.geolocation.getCurrentPosition(resolve, reject)
+    })
+
+    return [position.coords.latitude, position.coords.longitude]
+}
+function loadMap(){
+    var userMap = L.map('map', {
+        center: [48.868672,2.342130],
+        zoom: 12,
+    })
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: '19',
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(userMap);
+}
+
+loadMap();
+
+
